@@ -1,0 +1,9 @@
+@import './styles/App.css';
+@import './styles/Spinner.css';
+@import './styles/PopUp.css';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

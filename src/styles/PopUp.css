@@ -1,0 +1,26 @@
+.popup_block {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 15% 5% 0;
+    height: 80px;
+    width: 250px;
+    border-radius: 5px;
+    background: #272727;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    position: absolute;
+    padding: 3px 5px;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    cursor: pointer;
+}
