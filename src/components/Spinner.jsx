@@ -69,8 +69,6 @@ const Spinner = () => {
             <p>name-{i + 1}</p>
           ))}
         </div>
-
-        {true && <PopUp data={data} handlePopUp={handlePopUp} />}
       </div>
 
       <div className="spinner_block">
@@ -91,14 +89,14 @@ const Spinner = () => {
               <p>name-{i + 1}</p>
             ))}
           </div>
-
-          {openPopUp && <PopUp data={data} handlePopUp={handlePopUp} />}
         </div>
       </div>
 
       <div className="spin_button" onClick={handleRotation}>
         Spin it!
       </div>
+
+      {true && <PopUp data={data} handlePopUp={handlePopUp} />}
     </div>
   );
 };
