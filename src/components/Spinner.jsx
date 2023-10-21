@@ -60,9 +60,9 @@ const Spinner = () => {
       <div className="name_block_mobile">
         <h4>Add Name</h4>
         <div className="names">
-          {[...Array(5)].map((name, i) => (
-            <p>name-{i + 1}</p>
-          ))}
+            {winnerNames2.map((name, i) => (
+              <p>{name?.winner}</p>
+            ))}
         </div>
       </div>
 
