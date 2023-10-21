@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PopUp from "./PopUp";
 
 const Spinner = () => {
-  const [startRotate, setStartRotate] = useState(false);
   const [openPopUp, setOpenPopUp] = useState(false);
   const [data, setData] = useState("");
   const [winner, setWinner] = useState("");
@@ -18,11 +17,11 @@ const Spinner = () => {
   ];
 
   const winnerNames2 = [
-    { min: 0, max: 72, winner: "Ibrahim" },
-    { min: 73, max: 145, winner: "Jasim" },
-    { min: 146, max: 218, winner: "Jisan" },
-    { min: 219, max: 291, winner: "Teebro" },
-    { min: 292, max: 364, winner: "Rifat" },
+    { winner: "Ibrahim" },
+    { winner: "Jasim" },
+    { winner: "Jisan" },
+    { winner: "Teebro" },
+    { winner: "Rifat" },
   ];
 
   const handlePopUp = (value) => {
@@ -30,7 +29,6 @@ const Spinner = () => {
   };
 
   const handleRotation = () => {
-    setStartRotate(true);
     let min = 0;
     let max = 355;
     let degree = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -49,17 +47,14 @@ const Spinner = () => {
       }
     });
     console.log("* Winner:", result);
-    setTimeout(() => {
-      if (result) {
-        setOpenPopUp(true);
-        setData(result);
-      } else {
-        setOpenPopUp(false);
-        setData("Not available.");
-      }
-    }, 3000);
-  };
 
+    setTimeout(() => {
+        console.log("* openPopUp:if", openPopUp);
+        setOpenPopUp(true);
+        setData(result || 'Not available.');
+    }, 5000);
+  };
+  console.log("* openPopUp:", openPopUp);
   return (
     <div className="spinner_main">
       <div className="name_block_mobile">
@@ -85,8 +80,8 @@ const Spinner = () => {
         <div className="name_block">
           <h4>Add Name</h4>
           <div className="names">
-            {[...Array(5)].map((name, i) => (
-              <p>name-{i + 1}</p>
+            {winnerNames2.map((name, i) => (
+              <p>{name?.winner}</p>
             ))}
           </div>
         </div>
@@ -96,7 +91,7 @@ const Spinner = () => {
         Spin it!
       </div>
 
-      {true && <PopUp data={data} handlePopUp={handlePopUp} />}
+      {openPopUp && <PopUp data={data} handlePopUp={handlePopUp} />}
     </div>
   );
 };
